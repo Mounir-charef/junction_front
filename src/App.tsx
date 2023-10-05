@@ -1,5 +1,7 @@
+import Streaming from "./components/Streaming";
+
 const App = () => {
-  return <div>App</div>;
+  return <Streaming droneId="1" />;
 };
 
 export default App;
