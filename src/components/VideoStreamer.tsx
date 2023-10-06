@@ -25,7 +25,7 @@ const VideoStreamer: FC<VideoStreamerProps> = ({ id }) => {
     }
   }, [id]);
   return (
-    <div className="h-96 aspect-video">
+    <div className="h-96 aspect-video rounded-xl overflow-hidden">
       <div ref={ref} id="stream"></div>
     </div>
   );
