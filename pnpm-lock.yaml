@@ -82,6 +82,9 @@ devDependencies:
   '@types/node':
     specifier: ^20.8.2
     version: 20.8.2
+  '@types/ovenplayer':
+    specifier: ^0.10.6
+    version: 0.10.6
   '@types/react':
     specifier: ^18.2.15
     version: 18.2.25
@@ -1018,6 +1021,10 @@ packages:
 
   /@types/node@20.8.2:
     resolution: {integrity: sha512-Vvycsc9FQdwhxE3y3DzeIxuEJbWGDsnrxvMADzTDF/lcdR9/K+AQIeAghTQsHtotg/q0j3WEOYS/jQgSdWue3w==}
+    dev: true
+
+  /@types/ovenplayer@0.10.6:
+    resolution: {integrity: sha512-mT9MH+GPnnnYBPgQxUlq1AL1Fiwdse/+GMFErsCF8VJPBmJbx2Ktr5UIb8FIJWKkNSzZa4HafhJtqtEIestQKA==}
     dev: true
 
   /@types/prop-types@15.7.8:

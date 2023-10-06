@@ -1,19 +1,13 @@
-import ReactPlayer from "react-player";
-import { BASE_STREAM_URL } from "@/constants";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useParams } from "react-router-dom";
+import VideoStreamer from "./VideoStreamer";
 
 const Streaming = () => {
-  const { droneId } = useParams();
-  console.log(droneId);
+  const { droneId } = useParams<{ droneId?: string }>();
+
   return (
-    <div>
-      {droneId && (
-        <ReactPlayer
-          url={`${BASE_STREAM_URL}/${droneId[3]}`}
-          width="100%"
-          height="auto"
-        />
-      )}
+    <div className="container h-screen grid place-items-center">
+      {droneId && <VideoStreamer id={droneId[3]} />}
     </div>
   );
 };
