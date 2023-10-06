@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import { Socket, io } from "socket.io-client";
 import { BASE_WS_URL } from "@/constants";
+import { toast } from "sonner";
 
 interface SocketContextType {
   droneIds: string[];
@@ -23,7 +24,6 @@ interface updateProps {
 export function SocketProvider({ children }: SocketProviderProps) {
   const [droneIds, setDronesIds] = useState<string[]>([]);
   const [socket, setSocket] = useState<Socket | null>();
-
   const [drones, setDrones] = useState<Drone[]>([]);
 
   const updateDrone = ({ id, topic, data }: updateProps) => {
@@ -71,11 +71,11 @@ export function SocketProvider({ children }: SocketProviderProps) {
   useEffect(() => {
     if (socket) {
       socket.on("connect", () => {
-        console.log("Connected to server");
+        toast.success("Connected to ws server");
       });
 
       socket.on("disconnect", () => {
-        console.log("Disconnected from server");
+        toast("Disconnected from server");
         setDrones([]);
         setDronesIds([]);
       });
