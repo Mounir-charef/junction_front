@@ -6,7 +6,7 @@ const App = () => {
       className="container max-w-7xl flex justify-center h-screen items-center"
       id="map"
     >
-      <SocketProvider serverUrl="http://10.16.26.51:3000">
+      <SocketProvider>
         <Map />
       </SocketProvider>
     </div>

@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import { Socket, io } from "socket.io-client";
+import { BASE_WS_URL } from "@/constants";
 
 interface SocketContextType {
   droneIds: string[];
@@ -10,22 +11,21 @@ const SocketContext = createContext<SocketContextType | undefined>(undefined);
 
 interface SocketProviderProps {
   children: React.ReactNode;
-  serverUrl: string;
 }
 
-export function SocketProvider({ children, serverUrl }: SocketProviderProps) {
+export function SocketProvider({ children }: SocketProviderProps) {
   const [droneIds, setDronesIds] = useState<string[]>([]);
 
   const [socket, setSocket] = useState<Socket | null>();
 
   useEffect(() => {
-    const newSocket = io(serverUrl);
+    const newSocket = io(BASE_WS_URL);
     setSocket(newSocket);
 
     return () => {
       newSocket.close();
     };
-  }, [serverUrl]);
+  }, []);
 
   useEffect(() => {
     if (socket) {
