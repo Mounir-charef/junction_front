@@ -1,27 +1,42 @@
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
 import { useSocketContext } from "@/context/MapProvider";
+import "leaflet/dist/leaflet.css";
+import { MapContainer, TileLayer, useMapEvent } from "react-leaflet";
+import UvaMarker from "./UvaMarker";
+import { useRef } from "react";
+
+function SetViewOnClick({
+  animateRef,
+}: {
+  animateRef: React.MutableRefObject<boolean>;
+}) {
+  const map = useMapEvent("click", (e) => {
+    map.setView(e.latlng, map.getZoom(), {
+      animate: animateRef.current || false,
+    });
+  });
+
+  return null;
+}
 
 const Map = () => {
-  const { drones } = useSocketContext();
-  console.log(drones);
+  const animateRef = useRef(true);
+  const { droneIds } = useSocketContext();
   return (
     <MapContainer
       id="map"
       center={[51.505, -0.09]}
-      zoom={13}
-      scrollWheelZoom={false}
+      zoom={1}
+      scrollWheelZoom={true}
       className="h-full grow w-full"
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={[51.505, -0.09]}>
-        <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
-        </Popup>
-      </Marker>
+      {droneIds.map((id) => (
+        <UvaMarker key={id} id={id} />
+      ))}
+      <SetViewOnClick animateRef={animateRef} />
     </MapContainer>
   );
 };

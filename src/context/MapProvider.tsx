@@ -2,7 +2,8 @@ import React, { createContext, useEffect, useState } from "react";
 import { Socket, io } from "socket.io-client";
 
 interface SocketContextType {
-  drones: Drone[];
+  droneIds: string[];
+  socket: Socket | null | undefined;
 }
 
 const SocketContext = createContext<SocketContextType | undefined>(undefined);
@@ -13,7 +14,7 @@ interface SocketProviderProps {
 }
 
 export function SocketProvider({ children, serverUrl }: SocketProviderProps) {
-  const [drones, setDrones] = useState<Drone[]>([]);
+  const [droneIds, setDronesIds] = useState<string[]>([]);
 
   const [socket, setSocket] = useState<Socket | null>();
 
@@ -33,30 +34,19 @@ export function SocketProvider({ children, serverUrl }: SocketProviderProps) {
       });
 
       socket.on("hello", (uvaIds) => {
-        setDrones(uvaIds.map((id: string) => ({ id })));
+        setDronesIds(uvaIds);
       });
 
       socket.on("newUva", (uvaId) => {
-        setDrones((prev) => {
-          return [...prev, { id: uvaId }];
+        setDronesIds((prev) => {
+          return [...prev, uvaId];
         });
       });
-
-      socket.on("message", ({ topic, data, uvaId }) => {
-        console.log(topic);
-        switch (topic) {
-          case "uav1/bat/id":
-            setDrones((prev) => {
-              return [...prev, { id: uvaId, bat: data }];
-            });
-            break;
-        }
-      });
     }
-  }, [drones, socket]);
+  }, [droneIds, socket]);
 
   return (
-    <SocketContext.Provider value={{ drones }}>
+    <SocketContext.Provider value={{ droneIds, socket }}>
       {children}
     </SocketContext.Provider>
   );
