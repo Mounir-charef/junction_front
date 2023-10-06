@@ -57,3 +57,11 @@
 .leaflet-control-attribution {
   filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(100%);
 }
+
+.leaflet-popup,
+.leaflet-popup-content,
+.leaflet-popup-content-wrapper {
+  background-color: hsl(217.2, 32.6%, 17.5%);
+  color: hsl(210, 40%, 98%);
+  border-radius: 8px;
+}

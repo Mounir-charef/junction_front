@@ -27,17 +27,10 @@ const UvaMarker: FC<UvaMarkerProps> = ({ drone }) => {
     >
       <Popup>
         <div className="flex flex-col w-60 gap-1 text-lg items-left">
-          <span>
-            A pretty CSS3 popup. <br /> Easily {drone.id}.
-          </span>
+          <span>The drone: {drone.id}</span>
           <span>State: {drone.state}</span>
-          <span>Armed: {drone.armed}</span>
-          <span>In Air: {drone.in_air}</span>
           <span>Lat: {drone.gps.lat}</span>
           <span>Lng: {drone.gps.lon}</span>
-          <span>Fx: {drone.gps.fx}</span>
-          <span>Ns: {drone.gps.ns}</span>
-          <span>Abs: {drone.gps.abs}</span>
           <Link to={drone.id} className={buttonVariants({ variant: "link" })}>
             Watch stream
           </Link>

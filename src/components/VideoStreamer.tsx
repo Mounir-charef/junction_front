@@ -1,12 +1,14 @@
 import { BASE_STREAM_URL } from "@/constants";
 import { FC, useEffect, useRef } from "react";
 import OvenPlayer from "ovenplayer";
+import { cn } from "@/lib/utils";
 
 interface VideoStreamerProps {
   id: string;
+  className?: string;
 }
 
-const VideoStreamer: FC<VideoStreamerProps> = ({ id }) => {
+const VideoStreamer: FC<VideoStreamerProps> = ({ id, className }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -25,7 +27,9 @@ const VideoStreamer: FC<VideoStreamerProps> = ({ id }) => {
     }
   }, [id]);
   return (
-    <div className="h-96 aspect-video rounded-xl overflow-hidden">
+    <div
+      className={cn("h-96 aspect-video rounded-xl overflow-hidden", className)}
+    >
       <div ref={ref} id="stream"></div>
     </div>
   );

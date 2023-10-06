@@ -13,6 +13,7 @@ import VideoStreamer from "./VideoStreamer";
 import { Link } from "react-router-dom";
 import { Link2 } from "lucide-react";
 import { buttonVariants } from "./ui/button";
+import DroneInfo from "./DroneInfo";
 
 const SideBar = () => {
   const { drones } = useSocketContext();
@@ -40,8 +41,8 @@ const SideBar = () => {
                 This is the stream the drone is recording in real time
               </SheetDescription>
             </SheetHeader>
-            <div className="flex flex-col px-4 mt-2">
-              <VideoStreamer id={drone.id[3]} />
+            <div className="flex flex-col px-4 mt-2 gap-3">
+              <VideoStreamer id={drone.id[3]} className="h-full" />
               <Link
                 to={drone.id}
                 className={buttonVariants({
@@ -51,6 +52,7 @@ const SideBar = () => {
               >
                 <Link2 /> Watch in full screen
               </Link>
+              <DroneInfo drone={drone} />
             </div>
           </SheetContent>
         </Sheet>
