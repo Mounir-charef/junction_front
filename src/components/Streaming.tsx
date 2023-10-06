@@ -1,22 +1,21 @@
-import { FC, useEffect } from "react";
-import { io } from "socket.io-client";
+import ReactPlayer from "react-player";
+import { BASE_STREAM_URL } from "@/constants";
+import { useParams } from "react-router-dom";
 
-interface StreamingProps {
-  droneId: string;
-}
-
-const Streaming: FC<StreamingProps> = ({ droneId }) => {
-  useEffect(() => {
-    const socket = io(`ws://13.38.173.241:3333/app/${droneId}`);
-    socket.on("connect", () => {
-      console.log("connected");
-    });
-    return () => {
-      socket.disconnect();
-    };
-  }, [droneId]);
-
-  return <div>videoPlayer</div>;
+const Streaming = () => {
+  const { droneId } = useParams();
+  console.log(droneId);
+  return (
+    <div>
+      {droneId && (
+        <ReactPlayer
+          url={`${BASE_STREAM_URL}/${droneId[3]}`}
+          width="100%"
+          height="auto"
+        />
+      )}
+    </div>
+  );
 };
 
 export default Streaming;

@@ -3,19 +3,19 @@
 interface Drone {
   id: string;
   bat?: {
-    id?: number;
-    vl?: number;
-    pt?: number;
+    batId?: string;
+    batVl?: string;
+    batPt?: string;
   };
 
   gps?: {
-    fx?: number;
-    lat?: number;
-    lng?: number;
-    ns?: number;
-    abs?: number;
+    fx?: string;
+    lat?: string;
+    lon?: string;
+    ns?: string;
+    abs?: string;
   };
-  armed?: number;
-  state?: number;
+  armed?: string;
+  state?: string;
   in_air?: boolean;
 }

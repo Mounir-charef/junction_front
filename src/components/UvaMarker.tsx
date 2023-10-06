@@ -1,112 +1,47 @@
-import { useSocketContext } from "@/context/MapProvider";
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import { Marker, Popup, useMap } from "react-leaflet";
+import { Link } from "react-router-dom";
+import { buttonVariants } from "./ui/button";
 
 interface UvaMarkerProps {
-  id: string;
+  drone: Drone;
 }
 
-const UvaMarker: FC<UvaMarkerProps> = ({ id }) => {
+const UvaMarker: FC<UvaMarkerProps> = ({ drone }) => {
   const map = useMap();
 
-  const { socket } = useSocketContext();
-  const [drone, setDrone] = useState<Drone>({
-    id,
-  });
-  useEffect(() => {
-    if (socket) {
-      // TODO: change switch case with mapping
-      socket.on(
-        id,
-        ({
-          topic,
-          data,
-        }: {
-          topic: string;
-          data: string | number | boolean;
-        }) => {
-          switch (topic) {
-            case "state":
-              setDrone((prev) => {
-                return { ...prev, state: data as number };
-              });
-              break;
-            case "armed":
-              setDrone((prev) => {
-                return { ...prev, armed: data as number };
-              });
-              break;
-            case "in_air":
-              setDrone((prev) => {
-                return { ...prev, in_air: data as boolean };
-              });
-              break;
-            case "lat":
-              setDrone((prev) => {
-                return { ...prev, gps: { ...prev.gps, lat: data as number } };
-              });
-              break;
-            case "lng":
-              setDrone((prev) => {
-                return { ...prev, gps: { ...prev.gps, lng: data as number } };
-              });
-              break;
-            case "fx":
-              setDrone((prev) => {
-                return { ...prev, gps: { ...prev.gps, fx: data as number } };
-              });
-              break;
-            case "nx":
-              setDrone((prev) => {
-                return { ...prev, gps: { ...prev.gps, ns: data as number } };
-              });
-              break;
-            case "abs":
-              setDrone((prev) => {
-                return { ...prev, gps: { ...prev.gps, abs: data as number } };
-              });
-              break;
-            case "batId":
-              setDrone((prev) => {
-                return { ...prev, bat: { ...prev.bat, id: data as number } };
-              });
-              break;
-            case "batVl":
-              setDrone((prev) => {
-                return { ...prev, bat: { ...prev.bat, vl: data as number } };
-              });
-              break;
-            case "batPt":
-              setDrone((prev) => {
-                return { ...prev, bat: { ...prev.bat, pt: data as number } };
-              });
-              break;
-          }
-        }
-      );
-    }
-  }, [socket, id]);
-  if (!drone.gps?.lat || !drone.gps.lng) {
+  if (!drone.gps?.lat || !drone.gps.lon) {
     return null;
   }
   return (
     <Marker
-      position={[drone.gps.lat, drone.gps.lng]}
+      position={[Number(drone.gps.lat), Number(drone.gps.lon)]}
       eventHandlers={{
         click: () => {
-          map.setView(
-            [drone.gps?.lat as number, drone.gps?.lng as number],
-            14,
-            {
-              animate: true,
-              duration: 1000,
-            }
-          );
+          map.setView([Number(drone.gps?.lat), Number(drone.gps?.lon)], 20, {
+            animate: true,
+            duration: 1000,
+          });
         },
       }}
     >
       <Popup>
-        A pretty CSS3 popup. <br /> Easily {id}.
+        <div className="flex flex-col w-60 gap-1 text-lg items-left">
+          <span>
+            A pretty CSS3 popup. <br /> Easily {drone.id}.
+          </span>
+          <span>State: {drone.state}</span>
+          <span>Armed: {drone.armed}</span>
+          <span>In Air: {drone.in_air}</span>
+          <span>Lat: {drone.gps.lat}</span>
+          <span>Lng: {drone.gps.lon}</span>
+          <span>Fx: {drone.gps.fx}</span>
+          <span>Ns: {drone.gps.ns}</span>
+          <span>Abs: {drone.gps.abs}</span>
+          <Link to={drone.id} className={buttonVariants({ variant: "link" })}>
+            Watch stream
+          </Link>
+        </div>
       </Popup>
     </Marker>
   );

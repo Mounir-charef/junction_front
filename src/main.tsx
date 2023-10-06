@@ -8,12 +8,13 @@ import {
   Route,
 } from "react-router-dom";
 import "./index.css";
+import Streaming from "./components/Streaming.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
       <Route index element={<App />} />
-      <Route path="/:droneId" element={<App />} />
+      <Route path="/:droneId" element={<Streaming />} />
     </Route>
   )
 );
