@@ -1,4 +1,4 @@
-# Project Report for the Fleet Management System (JUNCTIONxALGIERS)
+# Project Report : Fleet Management System challenge (JUNCTIONxALGIERS)
 
 ## Executive Summary
 
@@ -6,7 +6,9 @@ Our team, Ariane09, comprised of members Imad, Amir, Mounir, Rachid, and Aymen, 
 
 ## Introduction
 
-The Fleet Management System developed by Ariane09 addresses the critical issue of efficiently managing military drones and providing decision-makers with real-time data. The need for a dashboard to monitor and explore this data is essential for effective decision-making.
+
+
+The Fleet Management System developed by Ariane09 (**AMUMD**: *Advance Military UAVs Monitoring Dashboard*) addresses the critical issue of efficiently managing military drones and providing decision-makers with real-time data. The need for a dashboard to monitor and explore this data is essential for effective decision-making.
 
 ## Problem Statement
 
@@ -25,16 +27,15 @@ The primary problem we aimed to solve is the efficient handling of data from mil
 
 ### Filtering and Searching
 - The left navigation bar allows users to filter and search for specific drones.
-- User-friendly design inspired by Figma ensures ease of use.
+- User-friendly design ensures ease of use.
 
 ### Drone Telemetry Data
 - Double-clicking on a drone opens a sidebar displaying telemetry data alongside a live video stream.
 - Users can access detailed information received from the drone and interact with the live video feed.
 
-### Video Enhancement
-- The platform offers video enhancement tools such as zoom, filters, and AI-assisted image segmentation and classification.
+### Video Manipulation
+- The platform offers video Manipulation tools such as zoom, filters, and AI-assisted image segmentation.
 - Users can pause and resume the live video feed.
-- Multi-screen mode allows simultaneous viewing of multiple drone feeds.
 
 ### Multi-Screen Viewing
 - Users can watch multiple live drone feeds simultaneously, selecting different views.
@@ -45,22 +46,42 @@ The primary problem we aimed to solve is the efficient handling of data from mil
 - Users can access notifications and respond promptly.
 
 ### Drone List
-- The left sidebar provides a list view of all drones, including their status and alerts.
+- The drones list page provides a list view of all drones, including their status and alerts.
 - This interface enables quick access and individual drone management.
 
 ## Future Development
 
-### Future Possibilities
-- The project has vast potential for further development, including the visualization and projection of video streams on maps, akin to an advanced Google Earth.
-- Unexplored areas due to time constraints include training AI models for failure prediction, report generation from video data using LLMS, and video quality enhancement with data compression.
-- Implementation of a robust video and data storage system for archiving collected data and ensuring swift access is crucial for future expansion.
+The implementation of our Fleet Management System presented several challenges, primarily due to time constraints and technical complexities. However, the project has vast potential for further development and enhancement:
 
-### Other Study Cases
-- Beyond military drones, the platform's capabilities can be adapted to monitor and manage other assets, such as vehicles, by replacing drone icons with trucks and drone cams with dash cams.
+### Advanced Video Analytics
+- Implement AI models for predictive maintenance, failure detection, and object recognition within video streams.
+- Enhance video quality and compression algorithms to optimize data storage and bandwidth usage.
+
+### Geographic Information Systems (GIS) Integration
+- Develop the capability to project video streams onto maps, creating a dynamic and detailed view of drone activities.
+- Incorporate GIS data for improved spatial analysis and tracking.
+
+### Historical Data Archiving
+- Establish a comprehensive data storage system to archive all collected drone data, telemetry, and video streams.
+- Implement data indexing and retrieval mechanisms for quick access to historical information.
+
+### User Customization
+- Provide users with the ability to customize their dashboards, layouts, and alert preferences.
+- Offer advanced filtering and search options for data retrieval.
+
+### Expanded Device Support
+- Extend support to a broader range of drone models, ensuring compatibility with various hardware and communication protocols.
+
+### Enhanced Security
+- Implement robust security measures to protect sensitive data and ensure secure communication between the platform and drones.
+
+Collaborative development with experts in fields such as AI, GIS, and cybersecurity could facilitate the realization of these enhancements.
 
 ## Conclusion
 
-In conclusion, Ariane09's Fleet Management System addresses the critical need for efficient monitoring and management of military drones. The platform's advanced functionalities, alert system, and potential for future development make it a valuable asset in the field of fleet management. We believe that our system has the potential to revolutionize the way military assets are managed, leading to more informed decision-making and improved operational efficiency.
+In conclusion, Ariane09's Fleet Management System successfully addressed the challenge of military drone monitoring, offering a range of essential functionalities. While time constraints and technical challenges limited the scope of our implementation, we recognize the significant potential for future development and expansion.
+
+Our commitment to advancing this project remains unwavering. We believe that with continued dedication, collaboration, and access to additional resources, our Fleet Management System can evolve into a transformative tool for military drone monitoring and beyond. This report signifies not the end but the beginning of an exciting journey toward more advanced and innovative solutions in the field of fleet management.
 
 ## Acknowledgments
 
