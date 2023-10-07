@@ -104,7 +104,7 @@ To run the Fleet Management System Node.js server locally, follow these steps:
 1. **Clone the Repository:**
    Clone this GitHub repository to your local machine using the following command :
 ```
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/lolifmaster/junction_backend
 ```
 
 
