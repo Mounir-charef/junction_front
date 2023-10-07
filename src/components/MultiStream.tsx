@@ -17,7 +17,7 @@ const MultiStream = () => {
         [...Array(4 - drones.length)].map((_, i) => (
           <div
             key={i}
-            className="h-full w-full rounded-xl bg-black overflow-hidden"
+            className="h-full w-full rounded-xl bg-black border border-gray-600"
           ></div>
         ))}
     </div>
