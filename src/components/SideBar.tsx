@@ -18,7 +18,7 @@ import DroneInfo from "./DroneInfo";
 const SideBar = () => {
   const { drones } = useSocketContext();
   return (
-    <div className="absolute px-1 flex w-12 flex-col items-center text-background cursor-auto justify-start py-2 gap-4 inset-y-4 top-[4.5rem] left-4 bg-primary dark:bg-secondary-background rounded-xl z-[10000]">
+    <div className="absolute overflow-y-auto no-scrollbar px-1 flex w-12 flex-col items-center text-background cursor-auto justify-start py-2 gap-4 inset-y-4 top-[4.5rem] left-4 bg-primary dark:bg-secondary-background rounded-xl z-[10000]">
       {drones.map((drone) => {
         if (!drone.gps?.lat || !drone.gps.lon) return;
         return (
