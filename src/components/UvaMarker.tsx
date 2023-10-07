@@ -1,7 +1,9 @@
 import { FC } from "react";
 import { Marker, Popup, useMap } from "react-leaflet";
+import { icon } from "leaflet";
 import { Link } from "react-router-dom";
 import { buttonVariants } from "./ui/button";
+import droneUrl from "@/assets/drone.svg";
 
 interface UvaMarkerProps {
   drone: Drone;
@@ -9,12 +11,19 @@ interface UvaMarkerProps {
 
 const UvaMarker: FC<UvaMarkerProps> = ({ drone }) => {
   const map = useMap();
+  const DroneIcon = icon({
+    iconUrl: droneUrl,
+    className: "text-primary",
+    iconSize: [55, 55],
+    iconAnchor: [15, 15],
+  });
 
   if (!drone.gps?.lat || !drone.gps.lon) {
     return null;
   }
   return (
     <Marker
+      icon={DroneIcon}
       position={[Number(drone.gps.lat), Number(drone.gps.lon)]}
       eventHandlers={{
         click: () => {
