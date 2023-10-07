@@ -1,27 +1,71 @@
-# React + TypeScript + Vite
+# Project Report for the Fleet Management System (JUNCTIONxALGIERS)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Executive Summary
 
-Currently, two official plugins are available:
+Our team, Ariane09, comprised of members Imad, Amir, Mounir, Rachid, and Aymen, took on the challenge of developing a Fleet Management System for military drones monitoring during the hackathon. In this report, we will present the key aspects of our project, including its functionalities, the problems it addresses, and potential future developments.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Introduction
 
-## Expanding the ESLint configuration
+The Fleet Management System developed by Ariane09 addresses the critical issue of efficiently managing military drones and providing decision-makers with real-time data. The need for a dashboard to monitor and explore this data is essential for effective decision-making.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Problem Statement
 
-- Configure the top-level `parserOptions` property like this:
+The primary problem we aimed to solve is the efficient handling of data from military drones reaching the command center. Decision-makers require a user-friendly dashboard to access and explore this data seamlessly.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## Key Functionalities
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Drone Location Tracking
+- The platform provides a live monitoring dashboard displaying the current locations of drones on a map.
+- Users can toggle between blue and black icons to visualize drones on the map.
+- Drones' states are indicated by color-coding: red (off), orange (on with warnings/alerts), and green (on with no problems).
+
+### Map Navigation
+- Users can pan and zoom on the map to view telemetry data of individual drones.
+- The map offers full PAN and Zoom capabilities.
+
+### Filtering and Searching
+- The left navigation bar allows users to filter and search for specific drones.
+- User-friendly design inspired by Figma ensures ease of use.
+
+### Drone Telemetry Data
+- Double-clicking on a drone opens a sidebar displaying telemetry data alongside a live video stream.
+- Users can access detailed information received from the drone and interact with the live video feed.
+
+### Video Enhancement
+- The platform offers video enhancement tools such as zoom, filters, and AI-assisted image segmentation and classification.
+- Users can pause and resume the live video feed.
+- Multi-screen mode allows simultaneous viewing of multiple drone feeds.
+
+### Multi-Screen Viewing
+- Users can watch multiple live drone feeds simultaneously, selecting different views.
+- Flexible grid options provide customization for the layout.
+
+### Alert System
+- The platform features an alert system for critical notifications such as low battery, bad weather, and maintenance needs.
+- Users can access notifications and respond promptly.
+
+### Drone List
+- The left sidebar provides a list view of all drones, including their status and alerts.
+- This interface enables quick access and individual drone management.
+
+## Future Development
+
+### Future Possibilities
+- The project has vast potential for further development, including the visualization and projection of video streams on maps, akin to an advanced Google Earth.
+- Unexplored areas due to time constraints include training AI models for failure prediction, report generation from video data using LLMS, and video quality enhancement with data compression.
+- Implementation of a robust video and data storage system for archiving collected data and ensuring swift access is crucial for future expansion.
+
+### Other Study Cases
+- Beyond military drones, the platform's capabilities can be adapted to monitor and manage other assets, such as vehicles, by replacing drone icons with trucks and drone cams with dash cams.
+
+## Conclusion
+
+In conclusion, Ariane09's Fleet Management System addresses the critical need for efficient monitoring and management of military drones. The platform's advanced functionalities, alert system, and potential for future development make it a valuable asset in the field of fleet management. We believe that our system has the potential to revolutionize the way military assets are managed, leading to more informed decision-making and improved operational efficiency.
+
+## Acknowledgments
+
+We would like to express our gratitude to the hackathon organizers for providing us with the opportunity to work on this challenging project. Additionally, we thank our team members for their dedication and hard work throughout the hackathon. Our success would not have been possible without their contributions.
+
+## Thank You
+
+We would like to extend our thanks to the judges and fellow participants for their attention and consideration. We are open to any questions or feedback and look forward to discussing our project further during the Q&A session.
