@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useParams } from "react-router-dom";
-import VideoStreamer from "./VideoStreamer";
+import VideoStreamer from "../components/VideoStreamer";
 
 const DroneStream = () => {
   const { droneId } = useParams<{ droneId?: string }>();

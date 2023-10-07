@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
+import App from "./scenes/App.tsx";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -8,8 +8,8 @@ import {
   Route,
 } from "react-router-dom";
 import "./index.css";
-import DroneStream from "./components/DroneStream.tsx";
-import MultiStream from "./components/MultiStream.tsx";
+import DroneStream from "./scenes/DroneStream.tsx";
+import MultiStream from "./scenes/MultiStream.tsx";
 import { SocketProvider } from "./context/MapProvider.tsx";
 
 const router = createBrowserRouter(

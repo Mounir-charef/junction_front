@@ -1,5 +1,5 @@
 import { useSocketContext } from "@/context/MapProvider";
-import VideoStreamer from "./VideoStreamer";
+import VideoStreamer from "../components/VideoStreamer";
 
 const MultiStream = () => {
   const { drones } = useSocketContext();

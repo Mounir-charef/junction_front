@@ -1,5 +1,5 @@
 import { Toaster } from "sonner";
-import Map from "./components/Map";
+import Map from "../components/Map";
 const App = () => {
   return (
     <div className="h-screen" id="map">
