@@ -8,19 +8,24 @@ import {
   Route,
 } from "react-router-dom";
 import "./index.css";
-import Streaming from "./components/Streaming.tsx";
+import DroneStream from "./components/DroneStream.tsx";
+import MultiStream from "./components/MultiStream.tsx";
+import { SocketProvider } from "./context/MapProvider.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
       <Route index element={<App />} />
-      <Route path="/:droneId" element={<Streaming />} />
+      <Route path="/:droneId" element={<DroneStream />} />
+      <Route path="/streams" element={<MultiStream />} />
     </Route>
   )
 );
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <SocketProvider>
+      <RouterProvider router={router} />
+    </SocketProvider>
   </React.StrictMode>
 );

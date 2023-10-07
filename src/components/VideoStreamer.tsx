@@ -13,7 +13,7 @@ const VideoStreamer: FC<VideoStreamerProps> = ({ id, className }) => {
 
   useEffect(() => {
     if (id) {
-      OvenPlayer.create("stream", {
+      OvenPlayer.create(id, {
         mute: true,
         sources: [
           {
@@ -23,6 +23,7 @@ const VideoStreamer: FC<VideoStreamerProps> = ({ id, className }) => {
         ],
         autoStart: true,
         controls: true,
+        loop: true,
       });
     }
   }, [id]);
@@ -30,7 +31,7 @@ const VideoStreamer: FC<VideoStreamerProps> = ({ id, className }) => {
     <div
       className={cn("h-96 aspect-video rounded-xl overflow-hidden", className)}
     >
-      <div ref={ref} id="stream"></div>
+      <div ref={ref} id={id}></div>
     </div>
   );
 };

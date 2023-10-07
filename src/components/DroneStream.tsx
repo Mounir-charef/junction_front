@@ -2,7 +2,7 @@
 import { useParams } from "react-router-dom";
 import VideoStreamer from "./VideoStreamer";
 
-const Streaming = () => {
+const DroneStream = () => {
   const { droneId } = useParams<{ droneId?: string }>();
 
   return (
@@ -12,4 +12,4 @@ const Streaming = () => {
   );
 };
 
-export default Streaming;
+export default DroneStream;

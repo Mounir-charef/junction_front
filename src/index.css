@@ -65,3 +65,7 @@
   color: hsl(210, 40%, 98%);
   border-radius: 8px;
 }
+
+.leaflet-container a {
+  color: inherit;
+}

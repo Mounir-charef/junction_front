@@ -1,5 +1,6 @@
 import { AreaChart, Bell, Copy, LayoutGrid, Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [theme, setTheme] = useState("dark");
@@ -39,7 +40,9 @@ const Navbar = () => {
           <AreaChart className="hover:opacity-60 cursor-pointer" />
           <Bell className="hover:opacity-60 cursor-pointer" />
           <Copy className="hover:opacity-60 cursor-pointer" />
-          <LayoutGrid className="hover:opacity-60 cursor-pointer" />
+          <Link to="streams" className="hover:opacity-60 cursor-pointer">
+            <LayoutGrid />
+          </Link>
         </div>
         <div
           onClick={handleThemeSwitch}
