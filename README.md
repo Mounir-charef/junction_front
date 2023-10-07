@@ -1,4 +1,4 @@
-# Project Report : Fleet Management System challenge (JUNCTIONxALGIERS)
+# Project Report : Fleet Management System challenge
 
 ## Executive Summary
 
@@ -17,6 +17,7 @@ The primary problem we aimed to solve is the efficient handling of data from mil
 ## Key Functionalities
 
 ### Drone Location Tracking
+
 - The platform provides a live monitoring dashboard displaying the current locations of drones on a map.
 - Users can toggle between blue and black icons to visualize drones on the map.
 - Drones' states are indicated by color-coding: red (off), orange (on with warnings/alerts), and green (on with no problems).
@@ -90,3 +91,67 @@ We would like to express our gratitude to the hackathon organizers for providing
 ## Thank You
 
 We would like to extend our thanks to the judges and fellow participants for their attention and consideration. We are open to any questions or feedback and look forward to discussing our project further during the Q&A session.
+
+
+## Appendix: How to Run the Node.js Server
+
+To run the Fleet Management System Node.js server locally, follow these steps:
+
+**Prerequisites:**
+- Node.js and npm (Node Package Manager) installed on your machine.
+- MQTT broker URL and other environment variables configured (as specified in your project).
+
+1. **Clone the Repository:**
+   Clone this GitHub repository to your local machine using the following command :
+```
+git clone https://github.com/your-username/your-repo-name.git
+```
+
+
+2. **Navigate to the Server Directory:**
+Change your working directory to the server directory of the cloned repository:
+```
+cd your-repo-name/server
+```
+
+3. **Install Dependencies:**
+Install the required Node.js packages and dependencies using npm:
+```
+npm install
+```
+
+4. **Set Environment Variables:**
+Create a `.env` file in the server directory and set the necessary environment variables, including `MQTT_URL`. Ensure that your `.env` file looks like this:
+```
+MQTT_URL=your-mqtt-broker-url
+PORT=3000
+```
+
+5. **Run the Server:**
+Start the Node.js server by running the following command:
+```
+npm start
+```
+
+6. **Access the Server:**
+Once the server is running, you can access it in your web browser by navigating to:
+```
+http://localhost:3000
+```
+You will see the Fleet Management System's live monitoring dashboard.
+
+7. **Network Access:**
+If you want to access the server from other devices in your network, you can use the IP address and port displayed in the console when the server starts. For example:
+```
+Network access via: 192.168.1.100:3000!
+```
+
+8. **Interact with the Dashboard:**
+You can interact with the dashboard by exploring drone data, telemetry, and video feeds.
+
+9. **Stop the Server:**
+To stop the server, press `Ctrl + C` in the terminal where the server is running.
+
+That's it! You've successfully set up and run the Fleet Management System Node.js server locally. You can now use it for military drone monitoring and explore its functionalities.
+
+For any questions or issues, please refer to the project documentation or reach out to our team for assistance.
