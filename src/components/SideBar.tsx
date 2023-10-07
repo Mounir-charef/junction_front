@@ -6,6 +6,13 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
 import { useSocketContext } from "@/context/MapProvider";
 import { cn } from "@/lib/utils";
 import { Icon } from "@iconify/react";
@@ -24,17 +31,38 @@ const SideBar = () => {
         return (
           <Sheet key={drone.id}>
             <SheetTrigger>
-              <Icon
-                icon="mingcute:drone-line"
-                key={drone.id}
-                className={cn("cursor-pointer hover:opacity-75 h-10 w-10", {
-                  "text-background": drone.state === "1",
-                  "text-red-700": drone.state === "2",
-                  "text-blue-700": drone.state === "3",
-                  "text-green-700": drone.state === "4",
-                  "text-red-400": drone.state === "5",
-                })}
-              />
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <Icon
+                      icon="mingcute:drone-line"
+                      key={drone.id}
+                      className={cn(
+                        "cursor-pointer hover:opacity-75 h-10 w-10",
+                        {
+                          "text-background": drone.state === "1",
+                          "text-red-700": drone.state === "2",
+                          "text-blue-700": drone.state === "3",
+                          "text-green-700": drone.state === "4",
+                          "text-red-400": drone.state === "5",
+                        }
+                      )}
+                    />
+                  </TooltipTrigger>
+                  <TooltipContent side="right" sideOffset={16}>
+                    <div className="flex flex-col w-60 gap-1 text-lg items-left">
+                      <span>The drone: {drone.id}</span>
+                      <span>State: {drone.state ?? "-"}</span>
+                      <Link
+                        to={drone.id}
+                        className={buttonVariants({ variant: "link" })}
+                      >
+                        Watch stream
+                      </Link>
+                    </div>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             </SheetTrigger>
             <SheetContent className="z-[100000]">
               <SheetHeader>
